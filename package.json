@@ -5,12 +5,12 @@
   "main": "build/index.js",
   "scripts": {
     "start": "functions-framework --source=build/ --target=toggl2pixela",
-    "dev": "concurrently \"tsc -w\" \"nodemon --watch ./build/ --exec npm run start\"",
+    "dev": "concurrently \"tsc -w\" \"TZ=utc nodemon --watch ./build/ --exec npm run start\"",
     "lint": "gts lint",
     "fix": "gts fix",
     "clean": "gts clean",
     "compile": "tsc",
-    "deploy": "npm run compile && gcloud functions deploy toggl2pixela --runtime nodejs16 --trigger-http --region asia-northeast1 --project toggl2pixela --env-vars-file .env.yaml --allow-unauthenticated"
+    "deploy": "npm run compile && gcloud functions deploy toggl2pixela --runtime nodejs16 --trigger-http --region asia-northeast1 --project toggl2pixela --env-vars-file .env.yaml"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,8 @@
   "homepage": "https://github.com/nabeliwo/toggl2pixela#readme",
   "dependencies": {
     "@google-cloud/functions-framework": "^3.1.2",
-    "axios": "^0.27.2"
+    "axios": "^0.27.2",
+    "dayjs": "^1.11.5"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
