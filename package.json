@@ -10,7 +10,7 @@
     "fix": "gts fix",
     "clean": "gts clean",
     "compile": "tsc",
-    "deploy": "npm run compile && gcloud functions deploy toggl2pixela --runtime nodejs16 --trigger-http --region asia-northeast1 --project toggl2pixela --allow-unauthenticated"
+    "deploy": "npm run compile && gcloud functions deploy toggl2pixela --runtime nodejs16 --trigger-http --region asia-northeast1 --project toggl2pixela --env-vars-file .env.yaml --allow-unauthenticated"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,8 @@
   },
   "homepage": "https://github.com/nabeliwo/toggl2pixela#readme",
   "dependencies": {
-    "@google-cloud/functions-framework": "^3.1.2"
+    "@google-cloud/functions-framework": "^3.1.2",
+    "axios": "^0.27.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
