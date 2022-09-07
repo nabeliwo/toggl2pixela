@@ -28,7 +28,7 @@ export const getTimeEntries = async () => {
       },
     })
     .then(res => {
-      const data: {[key: number]: number} = {};
+      const data: {[key: string]: number} = {};
 
       // toggl のタイムゾーンを考慮した時間範囲(昨日の0時から今日の0時まで)
       const min = dayjs(`${today.format('YYYY-MM-DD')} 00:00:00`)
